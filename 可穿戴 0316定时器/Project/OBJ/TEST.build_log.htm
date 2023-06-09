@@ -1,0 +1,63 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.21.1.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: . ., ., LIC=IK12Z-J1RY6-RX9UD-8GGQL-64JUR-9ESXX
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.21a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.14.0
+ 
+<h2>Project:</h2>
+E:\？？？\Desktop\可穿戴 0316定时器\Project\Pro\TEST.uvprojx
+Project File Date:  06/23/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'TEST'
+compiling main.c...
+..\..\USER\main.c(132): warning:  #177-D: variable "ADC_max" was declared but never referenced
+  	u16 ADC_max=0,adcnew=0;
+..\..\USER\main.c(132): warning:  #177-D: variable "adcnew" was declared but never referenced
+  	u16 ADC_max=0,adcnew=0;
+..\..\USER\main.c(133): warning:  #177-D: variable "tempr" was declared but never referenced
+  	static float tempr;
+..\..\USER\main.c(136): warning:  #177-D: variable "str" was declared but never referenced
+  	u8 str[20], select_num=0,press=0;
+..\..\USER\main.c(136): warning:  #177-D: variable "select_num" was declared but never referenced
+  	u8 str[20], select_num=0,press=0;
+..\..\USER\main.c(136): warning:  #177-D: variable "press" was declared but never referenced
+  	u8 str[20], select_num=0,press=0;
+..\..\USER\main.c(138): warning:  #177-D: variable "k" was declared but never referenced
+  	u8 t=0,i=0,j,k;
+..\..\USER\main.c(139): warning:  #177-D: variable "temp" was declared but never referenced
+  	u32 temp=0;
+..\..\USER\main.c(140): warning:  #177-D: variable "time" was declared but never referenced
+  	u16 time=0;
+..\..\USER\main.c: 9 warnings, 0 errors
+linking...
+Program Size: Code=11140 RO-data=336 RW-data=14460 ZI-data=1900  
+FromELF: creating hex file...
+"..\OBJ\TEST.axf" - 0 Error(s), 9 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  E:\？？？\Desktop\可穿戴 0316定时器\Project\Pro\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
