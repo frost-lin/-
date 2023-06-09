@@ -1,0 +1,11 @@
+Added Component: Designator=J5(HDR1X3)
+Add component. Clean all parameters for all variants
+Change Net Name : Old Net Name=NetJ5_1 New Net Name=NetR3_1
+Added Pin To Net: NetName=NetJ5_1 Pin=J5-1
+Added Pin To Net: NetName=NetJ5_1 Pin=J5-2
+Added Pin To Net: NetName=NetJ5_1 Pin=U1-5
+Added Net: Name=NetJ5_1
+Added Pin To Net: NetName=NetJ5_3 Pin=J5-3
+Added Pin To Net: NetName=NetJ5_3 Pin=R3-2
+Added Pin To Net: NetName=NetJ5_3 Pin=R4-2
+Added Net: Name=NetJ5_3

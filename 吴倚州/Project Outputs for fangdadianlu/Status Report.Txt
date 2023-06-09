@@ -1,0 +1,10 @@
+Output: Protel2 Netlist
+Type  : Protel2Netlist
+From  : Project [fangdadianlu.PrjPcb]
+   Generated File[fangdadianlu.NET]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 21:11:09 On 2022/7/30

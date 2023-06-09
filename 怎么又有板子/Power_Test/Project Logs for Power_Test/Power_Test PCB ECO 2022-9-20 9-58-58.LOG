@@ -1,0 +1,16 @@
+Removed Member From Class: ClassName=Power Member=J5
+Change Component Designator: OldDesignator= NewDesignator=J1
+Change Component Designator: OldDesignator= NewDesignator=J3
+Added Component: Designator=J?(HDR1X3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetJ?_1 Pin=J?-1
+Added Pin To Net: NetName=NetJ?_1 Pin=J?-2
+Added Pin To Net: NetName=NetJ?_1 Pin=U1-5
+Added Net: Name=NetJ?_1
+Added Pin To Net: NetName=NetJ?_3 Pin=J?-3
+Added Pin To Net: NetName=NetJ?_3 Pin=R3-2
+Added Pin To Net: NetName=NetJ?_3 Pin=R4-2
+Added Net: Name=NetJ?_3
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetR3_1 Pin=S1-1
+Added Net: Name=NetR3_1

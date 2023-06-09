@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=GND Pin=USB1-
+Removed Pin From Net: NetName=GND Pin=USB1-
+Removed Pin From Net: NetName=GND Pin=USB1-
+Removed Pin From Net: NetName=GND Pin=USB1-
+Added Component: Designator=K1(switch)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetIC1_1 Pin=K1-2
+Added Pin To Net: NetName=NetC3_1 Pin=K1-3
+Added Pin To Net: NetName=NetC3_1 Pin=K1-4
+Added Pin To Net: NetName=NetIC1_1 Pin=K1-5
+Added Member To Class: ClassName=Power Member=Component K1 BUTTON

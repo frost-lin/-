@@ -1,0 +1,11 @@
+Added Component: Designator=D1(6-0805_L)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(6-0805_L)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=D1-2
+Added Pin To Net: NetName=NetR3_2 Pin=R4-2
+Added Pin To Net: NetName=NetD1_A Pin=D1-1
+Added Pin To Net: NetName=NetD1_A Pin=R4-1
+Added Net: Name=NetD1_A
+Added Member To Class: ClassName=Power Member=Component D1 LED
+Added Member To Class: ClassName=Power Member=Component R4 20R

@@ -1,0 +1,552 @@
+PROTEL NETLIST 2.0
+[
+DESIGNATOR
+C1
+FOOTPRINT
+0402
+PARTTYPE
+1nF
+DESCRIPTION
+电容
+Comment
+1nF
+Component Kind
+Standard
+Description
+电容
+Footprint
+0402
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+CAP
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C2
+FOOTPRINT
+0402
+PARTTYPE
+1nF
+DESCRIPTION
+电容
+Comment
+1nF
+Component Kind
+Standard
+Description
+电容
+Footprint
+0402
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+CAP
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C3
+FOOTPRINT
+0402
+PARTTYPE
+1nF
+DESCRIPTION
+电容
+Comment
+1nF
+Component Kind
+Standard
+Description
+电容
+Footprint
+0402
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+CAP
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C4
+FOOTPRINT
+0402
+PARTTYPE
+0.1uF
+DESCRIPTION
+电容
+Comment
+0.1uF
+Component Kind
+Standard
+Description
+电容
+Footprint
+0402
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+CAP
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+IC1
+FOOTPRINT
+SO8_M
+PARTTYPE
+AD623
+DESCRIPTION
+IC
+Comment
+AD623
+Component Kind
+Standard
+Description
+IC
+Footprint
+SO8_M
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+AD623
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+P1
+FOOTPRINT
+软排线6p
+PARTTYPE
+Header 6
+DESCRIPTION
+Header, 6-Pin
+Comment
+Header 6
+Component Kind
+Standard
+Description
+Header, 6-Pin
+Footprint
+软排线6p
+Ibis Model
+
+LatestRevisionDate
+17-Jul-2002
+LatestRevisionNote
+Re-released for DXP Platform.
+Library Name
+Miscellaneous Connectors.IntLib
+Library Reference
+Header 6
+PCB3D
+
+Pin Info
+
+Publisher
+Altium Limited
+Signal Integrity
+Connector
+Simulation
+
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+P2
+FOOTPRINT
+软排线4p
+PARTTYPE
+Header 4
+DESCRIPTION
+Header, 4-Pin
+Comment
+Header 4
+Component Kind
+Standard
+Description
+Header, 4-Pin
+Footprint
+软排线4p
+Ibis Model
+
+LatestRevisionDate
+17-Jul-2002
+LatestRevisionNote
+Re-released for DXP Platform.
+Library Name
+Miscellaneous Connectors.IntLib
+Library Reference
+Header 4
+PCB3D
+
+Pin Info
+
+Publisher
+Altium Limited
+Signal Integrity
+Connector
+Simulation
+
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R1
+FOOTPRINT
+0402-A
+PARTTYPE
+1K
+DESCRIPTION
+电阻
+Comment
+1K
+Component Kind
+Standard
+Description
+电阻
+Footprint
+0402-A
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+RES
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R2
+FOOTPRINT
+0402-A
+PARTTYPE
+1K
+DESCRIPTION
+电阻
+Comment
+1K
+Component Kind
+Standard
+Description
+电阻
+Footprint
+0402-A
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+RES
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R3
+FOOTPRINT
+0402-A
+PARTTYPE
+10K
+DESCRIPTION
+电阻
+Comment
+10K
+Component Kind
+Standard
+Description
+电阻
+Footprint
+0402-A
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+RES
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R4
+FOOTPRINT
+0402-A
+PARTTYPE
+100R
+DESCRIPTION
+电阻
+Comment
+100R
+Component Kind
+Standard
+Description
+电阻
+Footprint
+0402-A
+Ibis Model
+
+Library Name
+Schlib1.SchLib
+Library Reference
+RES
+PCB3D
+
+Pin Info
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+(
+V-
+IC1-4 AD623--VS Passive      
+)
+(
+NetP2_4
+P2-4 Header 4-4 Passive      
+R4- 100R- Passive      
+)
+(
+NetP1_6
+P1-6 Header 6-6 Passive      
+P2-1 Header 4-1 Passive      
+)
+(
+NetP1_1
+P1-1 Header 6-1 Passive      
+P1-4 Header 6-4 Passive      
+R2- 1K- Passive      
+)
+(
+NetIC1_8
+IC1-8 AD623-+RG Passive      
+R3- 10K- Passive      
+)
+(
+NetIC1_6
+IC1-6 AD623-OUT Passive      
+R4- 100R- Passive      
+)
+(
+NetIC1_1
+IC1-1 AD623--RG Passive      
+R3- 10K- Passive      
+)
+(
+NetC4
+C4- 0.1uF- Passive      
+IC1-7 AD623-+VS Passive      
+P2-2 Header 4-2 Passive      
+)
+(
+NetC2
+C2- 1nF- Passive      
+C3- 1nF- Passive      
+C4- 0.1uF- Passive      
+IC1-5 AD623-REF Passive      
+P1-2 Header 6-2 Passive      
+P1-3 Header 6-3 Passive      
+P1-5 Header 6-5 Passive      
+P2-3 Header 4-3 Passive      
+R1- 1K- Passive      
+)
+(
+NetC1
+C1- 1nF- Passive      
+C3- 1nF- Passive      
+IC1-3 AD623-+IN Passive      
+R2- 1K- Passive      
+)
+(
+NetC1
+C1- 1nF- Passive      
+C2- 1nF- Passive      
+IC1-2 AD623--IN Passive      
+R1- 1K- Passive      
+)

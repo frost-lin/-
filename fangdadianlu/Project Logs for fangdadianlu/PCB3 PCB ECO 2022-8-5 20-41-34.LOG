@@ -1,0 +1,10 @@
+Change Component Comment : Designator=C4 Old Comment=0.1uF New Comment=0.1nF
+Added Component: Designator=C5(0402)
+Added Pin To Net: NetName=Net_1 Pin=-4
+Added Pin To Net: NetName=Net_2 Pin=C5-1
+Added Pin To Net: NetName=Net_3 Pin=C5-2
+Added Member To Class: ClassName=Sheet2 Member=Component C5 10nF
+Added Member To Class: ClassName=Sheet2 Member=Component  Header 4
+Added Member To Class: ClassName=Sheet2 Member=Component  Header 6
+Added Member To Class: ClassName=Sheet2 Member=Component  AD623
+Added Room: Name=Sheet2

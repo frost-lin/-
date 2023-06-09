@@ -1,0 +1,5 @@
+Added Component: Designator=J4(½ÓÏß×ù2P)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC9_1 Pin=J4-1
+Added Pin To Net: NetName=GND Pin=J4-2
+Added Member To Class: ClassName=Power Member=Component J4 BAT

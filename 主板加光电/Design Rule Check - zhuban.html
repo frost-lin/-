@@ -1,0 +1,532 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://E:\Tools\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2022/8/6</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16:45:20</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc" class="file"><acronym title="E:\？？？\Desktop\主板加光电\zhuban.PcbDoc">E:\？？？\Desktop\主板加光电\zhuban.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">64</td></tr>
+</table>
+</td>
+</table><a name="IDSG0CP00R5HH1EVNARXERLDO4GPIHNO5INBWH2K5BKW1MCLUIPNE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4VYZ05FMUEWTKVXZGR5FIVHXAMR3VNYVJWS4DHLQ3JOKJCV4YXAN">Clearance Constraint (Gap=0.35mm) (InPolygon),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIMHHELWQY4LMHFBVBJUSHPCF4L0HY2JIWS0CS3MIXCGY5AGE0XVN">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">40</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDISYC0GNLB54ONOUQSBW51PQ3FF3PLBYV4QRFUYGDFPPG5WRUNXCC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBRMU4BZJWMMVO54BVOLRNFOMPD1JMUSLM4HBKUI44O4KBJELLG5F">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5G2I0QQ1AANTHRGMMAGWV1ACOBQDLCLGIJQ3RLLXLTKOTHNHT42">Width Constraint (Min=0.1mm) (Max=10mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1PF3KD4EWSN1CH2WDLU35O5GGMS0XM0BRS0I3HUOGTXX51RQHSI">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.5mm) (Air Gap=0.3mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZLTFAB1XRIBXFU3ALW2MGTYY2KPRFBVMPW2R5NGYQHDVCWROBBBJ">Hole Size Constraint (Min=0.025mm) (Max=10mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPCNHWRHUTYFWDNJDTOFHDXD5BHN1SQ2LVNKMZIMK0J31HJ1H4QLD">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYAYXTPUYQV0GPW5T4NTUVUZAUO2NQHI54ZTLWZJT3ZZFRKDINGEF">Minimum Solder Mask Sliver (Gap=0.254mm) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZG2FMVNN2OLBGEEONQ4VXW5A3LUHYESBNG4ANKFVUCE1H4GZ1KBJ">Silk To Solder Mask (Clearance=0.254mm) (Disabled)(IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWVSHRAXKJAB5BXX15PW5BNGZTN4SHVWCGOAM3INQKMA11G5PN5KI">Silk to Silk (Clearance=0.254mm) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGHAMQ2YTNUFEE3TFDPNXBEWKMZVGN1UIZ4O0QP4SBRI1X0JCMMC">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDO2BQFNPAQHPWJU1K34IGXEL3TDXZCIETQZ24UQJNMPMZAM4XQIIO">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">64</td>
+</tr>
+</table><br><a name="IDIMHHELWQY4LMHFBVBJUSHPCF4L0HY2JIWS0CS3MIXCGY5AGE0XVN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.875mil|Location2.X=3793.125mil|Location1.Y=3719.355mil|Location2.Y=3725.604mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.875mil|Location2.X=3793.125mil|Location1.Y=3719.355mil|Location2.Y=3725.604mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J10-(9.639mm,52.952mm) on Top Layer And Track (10.287mm,51.46mm)(10.287mm,54.661mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3809.843mil|Location2.X=3818.967mil|Location1.Y=3717.918mil|Location2.Y=3727.042mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3809.843mil|Location2.X=3818.967mil|Location1.Y=3717.918mil|Location2.Y=3727.042mil|Absolute=True">Clearance Constraint: (0.136mm &lt; 0.2mm) Between Pad J10-(9.639mm,52.952mm) on Top Layer And Track (11.1mm,51.257mm)(11.1mm,54.229mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3809.944mil|Location2.X=3819.068mil|Location1.Y=3813.225mil|Location2.Y=3822.349mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3809.944mil|Location2.X=3819.068mil|Location1.Y=3813.225mil|Location2.Y=3822.349mil|Absolute=True">Clearance Constraint: (0.147mm &lt; 0.2mm) Between Pad J10-(9.639mm,52.952mm) on Top Layer And Track (11.1mm,54.229mm)(13.792mm,56.921mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.438mil|Location2.X=3794.562mil|Location1.Y=3714.639mil|Location2.Y=3723.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.438mil|Location2.X=3794.562mil|Location1.Y=3714.639mil|Location2.Y=3723.762mil|Absolute=True">Clearance Constraint: (0.167mm &lt; 0.2mm) Between Pad J10-(9.639mm,52.952mm) on Top Layer And Track (7.747mm,48.92mm)(10.287mm,51.46mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3509.631mil|Location2.X=3515.881mil|Location1.Y=3607.875mil|Location2.Y=3614.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3509.631mil|Location2.X=3515.881mil|Location1.Y=3607.875mil|Location2.Y=3614.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J11-(4.445mm,49.638mm) on Top Layer And Track (2.159mm,48.92mm)(7.747mm,48.92mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3610.556mil|Location2.X=3619.68mil|Location1.Y=3449.623mil|Location2.Y=3458.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3610.556mil|Location2.X=3619.68mil|Location1.Y=3449.623mil|Location2.Y=3458.747mil|Absolute=True">Clearance Constraint: (0.199mm &lt; 0.2mm) Between Pad J11-6(6.47mm,44.688mm) on Top Layer And Track (4.978mm,45.187mm)(6.477mm,45.187mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3547.875mil|Location2.X=3554.125mil|Location1.Y=2768.875mil|Location2.Y=2775.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3547.875mil|Location2.X=3554.125mil|Location1.Y=2768.875mil|Location2.Y=2775.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J12-(4.445mm,26.6mm) on Top Layer And Track (4.216mm,27.61mm)(7.01mm,27.61mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3547.875mil|Location2.X=3554.125mil|Location1.Y=2769.875mil|Location2.Y=2776.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3547.875mil|Location2.X=3554.125mil|Location1.Y=2769.875mil|Location2.Y=2776.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J12-(4.445mm,26.6mm) on Top Layer And Via (4.216mm,27.635mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3610.556mil|Location2.X=3619.68mil|Location1.Y=2893.158mil|Location2.Y=2902.282mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3610.556mil|Location2.X=3619.68mil|Location1.Y=2893.158mil|Location2.Y=2902.282mil|Absolute=True">Clearance Constraint: (0.194mm &lt; 0.2mm) Between Pad J12-4(6.47mm,31.05mm) on Top Layer And Track (4.978mm,30.556mm)(6.477mm,30.556mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.217mil|Location2.X=5293.342mil|Location1.Y=1823.47mil|Location2.Y=1832.594mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.217mil|Location2.X=5293.342mil|Location1.Y=1823.47mil|Location2.Y=1832.594mil|Absolute=True">Clearance Constraint: (0.196mm &lt; 0.2mm) Between Pad J13-(49.654mm,4.833mm) on Top Layer And Track (48.133mm,3.277mm)(48.133mm,7.087mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3973.593mil|Location2.X=3982.717mil|Location1.Y=1822.727mil|Location2.Y=1831.851mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3973.593mil|Location2.X=3982.717mil|Location1.Y=1822.727mil|Location2.Y=1831.851mil|Absolute=True">Clearance Constraint: (0.053mm &lt; 0.2mm) Between Pad J14-(16.285mm,4.833mm) on Top Layer And Track (13.538mm,4.928mm)(16.053mm,2.413mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3856.095mil|Location2.X=3865.219mil|Location1.Y=1925.832mil|Location2.Y=1934.956mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3856.095mil|Location2.X=3865.219mil|Location1.Y=1925.832mil|Location2.Y=1934.956mil|Absolute=True">Clearance Constraint: (0.193mm &lt; 0.2mm) Between Pad J14-4(11.835mm,6.858mm) on Top Layer And Track (12.328mm,5.293mm)(12.328mm,6.858mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.978mil|Location2.X=5573.102mil|Location1.Y=3704.438mil|Location2.Y=3713.562mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5563.978mil|Location2.X=5573.102mil|Location1.Y=3704.438mil|Location2.Y=3713.562mil|Absolute=True">Clearance Constraint: (0.176mm &lt; 0.2mm) Between Pad J16-2(55.224mm,50.858mm) on Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.301mil|Location2.X=5861.551mil|Location1.Y=2395.875mil|Location2.Y=2402.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.301mil|Location2.X=5861.551mil|Location1.Y=2395.875mil|Location2.Y=2402.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J5-(64.025mm,19.247mm) on Top Layer And Track (61.366mm,18.136mm)(66.192mm,18.136mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.301mil|Location2.X=5861.551mil|Location1.Y=2417.875mil|Location2.Y=2424.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.301mil|Location2.X=5861.551mil|Location1.Y=2417.875mil|Location2.Y=2424.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J5-(64.025mm,19.247mm) on Top Layer And Track (61.874mm,18.694mm)(65.888mm,18.694mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5820.438mil|Location2.X=5829.562mil|Location1.Y=2292.588mil|Location2.Y=2301.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5820.438mil|Location2.X=5829.562mil|Location1.Y=2292.588mil|Location2.Y=2301.712mil|Absolute=True">Clearance Constraint: (0.197mm &lt; 0.2mm) Between Pad J5-6(62mm,15.797mm) on Top Layer And Track (61.976mm,15.3mm)(63.5mm,15.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.623mil|Location2.X=5888.873mil|Location1.Y=2986.623mil|Location2.Y=2992.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.623mil|Location2.X=5888.873mil|Location1.Y=2986.623mil|Location2.Y=2992.873mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(64.025mm,34.311mm) on Top Layer And Track (55.918mm,33.141mm)(63.519mm,33.141mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.623mil|Location2.X=5888.873mil|Location1.Y=2985.623mil|Location2.Y=2991.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.623mil|Location2.X=5888.873mil|Location1.Y=2985.623mil|Location2.Y=2991.873mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J6-(64.025mm,34.311mm) on Top Layer And Via (63.519mm,33.115mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5821.438mil|Location2.X=5830.562mil|Location1.Y=2885.623mil|Location2.Y=2894.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5821.438mil|Location2.X=5830.562mil|Location1.Y=2885.623mil|Location2.Y=2894.747mil|Absolute=True">Clearance Constraint: (0.199mm &lt; 0.2mm) Between Pad J6-6(62mm,30.861mm) on Top Layer And Track (62.001mm,30.362mm)(63.567mm,30.362mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5880.875mil|Location2.X=5887.125mil|Location1.Y=3560.875mil|Location2.Y=3567.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5880.875mil|Location2.X=5887.125mil|Location1.Y=3560.875mil|Location2.Y=3567.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(64.025mm,48.765mm) on Top Layer And Track (60.376mm,47.727mm)(63.475mm,47.727mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5880.875mil|Location2.X=5887.125mil|Location1.Y=3560.875mil|Location2.Y=3567.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5880.875mil|Location2.X=5887.125mil|Location1.Y=3560.875mil|Location2.Y=3567.125mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J7-(64.025mm,48.765mm) on Top Layer And Via (63.475mm,47.727mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4973.787mil|Location2.X=4980.036mil|Location1.Y=3719.806mil|Location2.Y=3726.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4973.787mil|Location2.X=4980.036mil|Location1.Y=3719.806mil|Location2.Y=3726.055mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.2mm) Between Pad J8-(39.246mm,52.952mm) on Top Layer And Track (39.706mm,50.704mm)(41.504mm,52.502mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.438mil|Location2.X=4067.562mil|Location1.Y=3689.851mil|Location2.Y=3698.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.438mil|Location2.X=4067.562mil|Location1.Y=3689.851mil|Location2.Y=3698.975mil|Absolute=True">Clearance Constraint: (0.085mm &lt; 0.2mm) Between Track (11.1mm,51.206mm)(57.815mm,51.206mm) on Bottom Layer And Via (17.221mm,50.597mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.438mil|Location2.X=4067.562mil|Location1.Y=3655.025mil|Location2.Y=3664.149mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.438mil|Location2.X=4067.562mil|Location1.Y=3655.025mil|Location2.Y=3664.149mil|Absolute=True">Clearance Constraint: (0.085mm &lt; 0.2mm) Between Track (11.252mm,49.987mm)(30.226mm,49.987mm) on Bottom Layer And Via (17.221mm,50.597mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.808mil|Location2.X=4533.932mil|Location1.Y=3804.851mil|Location2.Y=3813.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.808mil|Location2.X=4533.932mil|Location1.Y=3804.851mil|Location2.Y=3813.975mil|Absolute=True">Clearance Constraint: (0.186mm &lt; 0.2mm) Between Track (15.469mm,54.178mm)(29.947mm,54.178mm) on Bottom Layer And Via (29.067mm,53.467mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4194.234mil|Location2.X=4203.358mil|Location1.Y=2678.625mil|Location2.Y=2687.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4194.234mil|Location2.X=4203.358mil|Location1.Y=2678.625mil|Location2.Y=2687.749mil|Absolute=True">Clearance Constraint: (0.172mm &lt; 0.2mm) Between Track (19.393mm,25.565mm)(25.997mm,25.565mm) on Bottom Layer And Via (20.67mm,24.912mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.153mil|Location2.X=4442.277mil|Location1.Y=2374.002mil|Location2.Y=2383.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.153mil|Location2.X=4442.277mil|Location1.Y=2374.002mil|Location2.Y=2383.126mil|Absolute=True">Clearance Constraint: (0.191mm &lt; 0.2mm) Between Track (26.34mm,17.526mm)(26.562mm,17.748mm) on Top Layer And Via (27.102mm,17.348mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.153mil|Location2.X=4442.277mil|Location1.Y=2374.002mil|Location2.Y=2383.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.153mil|Location2.X=4442.277mil|Location1.Y=2374.002mil|Location2.Y=2383.126mil|Absolute=True">Clearance Constraint: (0.191mm &lt; 0.2mm) Between Track (26.562mm,17.748mm)(26.562mm,19.011mm) on Top Layer And Via (27.102mm,17.348mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4507.978mil|Location2.X=4517.102mil|Location1.Y=2508.898mil|Location2.Y=2518.022mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4507.978mil|Location2.X=4517.102mil|Location1.Y=2508.898mil|Location2.Y=2518.022mil|Absolute=True">Clearance Constraint: (0.184mm &lt; 0.2mm) Between Track (27.559mm,20.269mm)(28.895mm,21.605mm) on Bottom Layer And Via (28.956mm,20.726mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5119.808mil|Location2.X=5128.932mil|Location1.Y=3804.851mil|Location2.Y=3813.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5119.808mil|Location2.X=5128.932mil|Location1.Y=3804.851mil|Location2.Y=3813.975mil|Absolute=True">Clearance Constraint: (0.186mm &lt; 0.2mm) Between Track (29.947mm,54.178mm)(45.06mm,54.178mm) on Bottom Layer And Via (44.18mm,53.467mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5052.438mil|Location2.X=5061.562mil|Location1.Y=3417.351mil|Location2.Y=3426.475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5052.438mil|Location2.X=5061.562mil|Location1.Y=3417.351mil|Location2.Y=3426.475mil|Absolute=True">Clearance Constraint: (0.161mm &lt; 0.2mm) Between Track (39.706mm,44.323mm)(42.494mm,44.323mm) on Top Layer And Via (42.469mm,43.637mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5053.138mil|Location2.X=5062.262mil|Location1.Y=3417.348mil|Location2.Y=3426.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5053.138mil|Location2.X=5062.262mil|Location1.Y=3417.348mil|Location2.Y=3426.472mil|Absolute=True">Clearance Constraint: (0.161mm &lt; 0.2mm) Between Track (42.494mm,44.323mm)(42.788mm,44.617mm) on Top Layer And Via (42.469mm,43.637mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5142.438mil|Location2.X=5151.562mil|Location1.Y=3430.134mil|Location2.Y=3439.258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5142.438mil|Location2.X=5151.562mil|Location1.Y=3430.134mil|Location2.Y=3439.258mil|Absolute=True">Clearance Constraint: (0.099mm &lt; 0.2mm) Between Track (42.788mm,44.617mm)(49.949mm,44.617mm) on Top Layer And Via (44.755mm,43.993mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.438mil|Location2.X=5262.562mil|Location1.Y=2384.718mil|Location2.Y=2393.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.438mil|Location2.X=5262.562mil|Location1.Y=2384.718mil|Location2.Y=2393.842mil|Absolute=True">Clearance Constraint: (0.169mm &lt; 0.2mm) Between Track (46.051mm,17.679mm)(49.949mm,17.679mm) on Top Layer And Via (47.574mm,18.329mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.954mil|Location2.X=5261.078mil|Location1.Y=2932.633mil|Location2.Y=2941.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.954mil|Location2.X=5261.078mil|Location1.Y=2932.633mil|Location2.Y=2941.757mil|Absolute=True">Clearance Constraint: (0.187mm &lt; 0.2mm) Between Track (46.685mm,32.024mm)(48.285mm,32.024mm) on Top Layer And Via (47.537mm,31.357mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5786.025mil|Location2.X=5795.149mil|Location1.Y=2567.438mil|Location2.Y=2576.562mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5786.025mil|Location2.X=5795.149mil|Location1.Y=2567.438mil|Location2.Y=2576.562mil|Absolute=True">Clearance Constraint: (0.186mm &lt; 0.2mm) Between Track (60.884mm,15.977mm)(60.884mm,23.495mm) on Bottom Layer And Via (61.595mm,22.53mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.806mil|Location2.X=4442.93mil|Location1.Y=2658.572mil|Location2.Y=2667.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4433.806mil|Location2.X=4442.93mil|Location1.Y=2658.572mil|Location2.Y=2667.696mil|Absolute=True">Clearance Constraint: (0.036mm &lt; 0.2mm) Between Via (26.441mm,25.121mm) from Top Layer to Bottom Layer And Via (27.036mm,24.598mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4459.864mil|Location2.X=4468.988mil|Location1.Y=2641.532mil|Location2.Y=2651.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4459.864mil|Location2.X=4468.988mil|Location1.Y=2641.532mil|Location2.Y=2651.302mil|Absolute=True">Clearance Constraint: (0.137mm &lt; 0.2mm) Between Via (27.036mm,24.598mm) from Top Layer to Bottom Layer And Via (27.838mm,24.206mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4491.4mil|Location2.X=4500.524mil|Location1.Y=2621.673mil|Location2.Y=2630.797mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4491.4mil|Location2.X=4500.524mil|Location1.Y=2621.673mil|Location2.Y=2630.797mil|Absolute=True">Clearance Constraint: (0.167mm &lt; 0.2mm) Between Via (27.838mm,24.206mm) from Top Layer to Bottom Layer And Via (28.564mm,23.636mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.696mil|Location2.X=5267.772mil|Location1.Y=2899.196mil|Location2.Y=2908.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.696mil|Location2.X=5267.772mil|Location1.Y=2899.196mil|Location2.Y=2908.32mil|Absolute=True">Clearance Constraint: (0.141mm &lt; 0.2mm) Between Via (47.537mm,31.357mm) from Top Layer to Bottom Layer And Via (47.828mm,30.556mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDISYC0GNLB54ONOUQSBW51PQ3FF3PLBYV4QRFUYGDFPPG5WRUNXCC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3740.99mil|Location2.X=3839.01mil|Location1.Y=3720.714mil|Location2.Y=3818.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3740.99mil|Location2.X=3839.01mil|Location1.Y=3720.714mil|Location2.Y=3818.734mil|Absolute=True">Short-Circuit Constraint: Between Pad J10-(9.639mm,52.952mm) on Top Layer And Track (10.287mm,51.46mm)(10.287mm,54.661mm) on Top Layer Location : [X = 96.266mm][Y = 95.751mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3510.99mil|Location2.X=3609.01mil|Location1.Y=3561.99mil|Location2.Y=3660.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3510.99mil|Location2.X=3609.01mil|Location1.Y=3561.99mil|Location2.Y=3660.01mil|Absolute=True">Short-Circuit Constraint: Between Pad J11-(4.445mm,49.638mm) on Top Layer And Track (2.159mm,48.92mm)(7.747mm,48.92mm) on Top Layer Location : [X = 90.424mm][Y = 91.719mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3535.122mil|Location2.X=3610.216mil|Location1.Y=2731.744mil|Location2.Y=2806.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3535.122mil|Location2.X=3610.216mil|Location1.Y=2731.744mil|Location2.Y=2806.838mil|Absolute=True">Short-Circuit Constraint: Between Pad J12-(4.445mm,26.6mm) on Top Layer And Track (4.216mm,27.61mm)(7.01mm,27.61mm) on Top Layer Location : [X = 90.746mm][Y = 70.34mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.139mil|Location2.X=3571.861mil|Location1.Y=2747.47mil|Location2.Y=2789.193mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3530.139mil|Location2.X=3571.861mil|Location1.Y=2747.47mil|Location2.Y=2789.193mil|Absolute=True">Short-Circuit Constraint: Between Pad J12-(4.445mm,26.6mm) on Top Layer And Via (4.216mm,27.635mm) from Top Layer to Bottom Layer Location : [X = 90.195mm][Y = 70.316mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.735mil|Location2.X=5954.605mil|Location1.Y=2350.83mil|Location2.Y=2448.7mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.735mil|Location2.X=5954.605mil|Location1.Y=2350.83mil|Location2.Y=2448.7mil|Absolute=True">Short-Circuit Constraint: Between Pad J5-(64.025mm,19.247mm) on Top Layer And Track (61.366mm,18.136mm)(66.192mm,18.136mm) on Top Layer Location : [X = 150.004mm][Y = 60.954mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.66mil|Location2.X=5954.68mil|Location1.Y=2371.99mil|Location2.Y=2470.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.66mil|Location2.X=5954.68mil|Location1.Y=2371.99mil|Location2.Y=2470.01mil|Absolute=True">Short-Circuit Constraint: Between Pad J5-(64.025mm,19.247mm) on Top Layer And Track (61.874mm,18.694mm)(65.888mm,18.694mm) on Top Layer Location : [X = 150.004mm][Y = 61.493mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.633mil|Location2.X=5892.559mil|Location1.Y=2973.711mil|Location2.Y=3009.637mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5856.633mil|Location2.X=5892.559mil|Location1.Y=2973.711mil|Location2.Y=3009.637mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(64.025mm,34.311mm) on Top Layer And Track (55.918mm,33.141mm)(63.519mm,33.141mm) on Top Layer Location : [X = 149.215mm][Y = 75.989mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5866.519mil|Location2.X=5904.977mil|Location1.Y=2977.348mil|Location2.Y=3015.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5866.519mil|Location2.X=5904.977mil|Location1.Y=2977.348mil|Location2.Y=3015.806mil|Absolute=True">Short-Circuit Constraint: Between Pad J6-(64.025mm,34.311mm) on Top Layer And Via (63.519mm,33.115mm) from Top Layer to Bottom Layer Location : [X = 149.498mm][Y = 76.113mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.817mil|Location2.X=5892.63mil|Location1.Y=3545.594mil|Location2.Y=3582.406mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5855.817mil|Location2.X=5892.63mil|Location1.Y=3545.594mil|Location2.Y=3582.406mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(64.025mm,48.765mm) on Top Layer And Track (60.376mm,47.727mm)(63.475mm,47.727mm) on Top Layer Location : [X = 149.205mm][Y = 90.526mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5863.175mil|Location2.X=5904.825mil|Location1.Y=3547.906mil|Location2.Y=3589.556mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5863.175mil|Location2.X=5904.825mil|Location1.Y=3547.906mil|Location2.Y=3589.556mil|Absolute=True">Short-Circuit Constraint: Between Pad J7-(64.025mm,48.765mm) on Top Layer And Via (63.475mm,47.727mm) from Top Layer to Bottom Layer Location : [X = 149.454mm][Y = 90.646mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4973.542mil|Location2.X=4979.26mil|Location1.Y=3720.582mil|Location2.Y=3726.3mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4973.542mil|Location2.X=4979.26mil|Location1.Y=3720.582mil|Location2.Y=3726.3mil|Absolute=True">Short-Circuit Constraint: Between Pad J8-(39.246mm,52.952mm) on Top Layer And Track (39.706mm,50.704mm)(41.504mm,52.502mm) on Top Layer Location : [X = 126.401mm][Y = 94.575mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBRMU4BZJWMMVO54BVOLRNFOMPD1JMUSLM4HBKUI44O4KBJELLG5F"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5396.59mil|Location2.X=5434.59mil|Location1.Y=3036mil|Location2.Y=3506.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5396.59mil|Location2.X=5434.59mil|Location1.Y=3036mil|Location2.Y=3506.748mil|Absolute=True">Un-Routed Net Constraint: Net VCC3.3 Between Pad C21-2(51.577mm,34.798mm) on Top Layer And Via (51.587mm,45.872mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4087mil|Location2.X=4355mil|Location1.Y=2396.504mil|Location2.Y=2681.092mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4087mil|Location2.X=4355mil|Location1.Y=2396.504mil|Location2.Y=2681.092mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C5-1(20.371mm,20.612mm) on Bottom Layer And Track (22.098mm,22.761mm)(23.812mm,22.761mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4461.252mil|Location2.X=5569.079mil|Location1.Y=2618.252mil|Location2.Y=3715.882mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4461.252mil|Location2.X=5569.079mil|Location1.Y=2618.252mil|Location2.Y=3715.882mil|Absolute=True">Un-Routed Net Constraint: Net GD_3 Between Via (27.838mm,24.206mm) from Top Layer to Bottom Layer And Pad J16-2(55.224mm,50.858mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4601.409mil|Location2.X=4675.871mil|Location1.Y=2232.811mil|Location2.Y=2467.982mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4601.409mil|Location2.X=4675.871mil|Location1.Y=2232.811mil|Location2.Y=2467.982mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R7-2(31.648mm,14.516mm) on Top Layer And Pad STM32F103RBT6-31(32.562mm,19.011mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4672.409mil|Location2.X=4768.748mil|Location1.Y=2231.811mil|Location2.Y=2279.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4672.409mil|Location2.X=4768.748mil|Location1.Y=2231.811mil|Location2.Y=2279.181mil|Absolute=True">Un-Routed Net Constraint: Net NetR8_1 Between Pad R8-1(33.452mm,14.491mm) on Top Layer And Via (34.747mm,14.478mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.966mil|Location2.X=4419.965mil|Location1.Y=2398.958mil|Location2.Y=2590.013mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.966mil|Location2.X=4419.965mil|Location1.Y=2398.958mil|Location2.Y=2590.013mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad STM32F103RBT6-12(23.812mm,22.761mm) on Top Layer And Pad STM32F103RBT6-18(26.062mm,19.011mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4130mil|Location2.X=4330mil|Location1.Y=2867mil|Location2.Y=3067mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4130mil|Location2.X=4330mil|Location1.Y=2867mil|Location2.Y=3067mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (21.438mm,32.537mm)(21.463mm,32.563mm) on Top Layer And Track (21.463mm,32.563mm)(21.463mm,40.843mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5026mil|Location2.X=5303mil|Location1.Y=3526mil|Location2.Y=3691mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5026mil|Location2.X=5303mil|Location1.Y=3526mil|Location2.Y=3691mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (43.696mm,49.827mm)(44.221mm,49.301mm) on Top Layer And Track (46.177mm,48.412mm)(46.355mm,48.235mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5064.37mil|Location2.X=5513.252mil|Location1.Y=2565.126mil|Location2.Y=2745.662mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5064.37mil|Location2.X=5513.252mil|Location1.Y=2565.126mil|Location2.Y=2745.662mil|Absolute=True">Un-Routed Net Constraint: Net VCC3.3 Between Track (45.196mm,24.895mm)(45.196mm,27.178mm) on Top Layer And Track (51.518mm,22.904mm)(51.518mm,24.401mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDGHAMQ2YTNUFEE3TFDPNXBEWKMZVGN1UIZ4O0QP4SBRI1X0JCMMC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3979.705mil|Location2.X=4020.263mil|Location1.Y=2870.705mil|Location2.Y=2933.077mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3979.705mil|Location2.X=4020.263mil|Location1.Y=2870.705mil|Location2.Y=2933.077mil|Absolute=True">Net Antennae: Track (14.859mm,29.87mm)(15.519mm,30.531mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4457.752mil|Location2.X=4513.446mil|Location1.Y=2614.752mil|Location2.Y=2702.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4457.752mil|Location2.X=4513.446mil|Location1.Y=2614.752mil|Location2.Y=2702.689mil|Absolute=True">Net Antennae: Via (27.838mm,24.206mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.752mil|Location2.X=3565.738mil|Location1.Y=2390.752mil|Location2.Y=2463.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.752mil|Location2.X=3565.738mil|Location1.Y=2390.752mil|Location2.Y=2463.981mil|Absolute=True">Net Antennae: Via (3.886mm,18.415mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\%EF%BC%9F%EF%BC%9F%EF%BC%9F\Desktop\%E4%B8%BB%E6%9D%BF%E5%8A%A0%E5%85%89%E7%94%B5\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3531.752mil|Location2.X=3578.738mil|Location1.Y=2753.752mil|Location2.Y=2826.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\？？？\Desktop\主板加光电\zhuban.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3531.752mil|Location2.X=3578.738mil|Location1.Y=2753.752mil|Location2.Y=2826.981mil|Absolute=True">Net Antennae: Via (4.216mm,27.635mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

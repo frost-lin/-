@@ -1,0 +1,5 @@
+Change Component Comment : Designator=R2 Old Comment=2R New Comment=0.5R
+Change Component Comment : Designator=R3 Old Comment=2R New Comment=10K
+Change Net Name : Old Net Name=NetD1_A New Net Name=Net25%_A
+Change Net Name : Old Net Name=NetD1_K New Net Name=Net25%_K
+Change Net Name : Old Net Name=NetD3_A New Net Name=Net75%_A

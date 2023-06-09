@@ -1,0 +1,24 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [Free Documents]
+   Generated File[xiedian.GTO]
+   Generated File[xiedian.GTP]
+   Generated File[xiedian.GTS]
+   Generated File[xiedian.GTL]
+   Generated File[xiedian.GBL]
+   Generated File[xiedian.GBS]
+   Generated File[xiedian.GBP]
+   Generated File[xiedian.GBO]
+   Generated File[xiedian.GM1]
+   Generated File[xiedian.GKO]
+   Generated File[xiedian.GML]
+   Generated File[xiedian.1]
+   Generated File[xiedian.RUL]
+   Generated File[xiedian.EXTREP]
+   Generated File[xiedian.REP]
+
+
+Files Generated   : 15
+Documents Printed : 0
+
+Finished Output Generation At 23:00:33 On 2022/1/11

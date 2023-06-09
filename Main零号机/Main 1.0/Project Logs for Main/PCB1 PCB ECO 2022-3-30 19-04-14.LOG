@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=Y1 Old Footprint=xtal New Footprint=R38
+Change Component Designator: OldDesignator=Bat NewDesignator=J4
+Change Component Designator: OldDesignator=buletooth NewDesignator=J2
+Change Component Designator: OldDesignator=MPU6050 NewDesignator=J3
+Change Component Designator: OldDesignator=SWD NewDesignator=J1
+Added Pin To Net: NetName=BAT+ Pin=K1-2
+Added Pin To Net: NetName=BAT Pin=K1-3
+Added Room: Name=Sheet1

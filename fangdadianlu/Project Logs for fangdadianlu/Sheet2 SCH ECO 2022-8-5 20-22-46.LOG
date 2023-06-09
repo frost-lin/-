@@ -1,0 +1,3 @@
+Change Component Comment: Designator=C4 Old Comment=0.1uF New Comment=0.1nF
+Change Component Comment: Designator=R3 Old Comment=1K New Comment=10K
+Change Pin Designator/Name:  Old Designator=2 Old Name=2 New Designator =-VS New Name=4

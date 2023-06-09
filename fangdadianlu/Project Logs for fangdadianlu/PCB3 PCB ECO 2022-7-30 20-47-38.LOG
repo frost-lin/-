@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=P2 Old Footprint=8PÈíÅÅÏß New Footprint=ÈíÅÅÏß4p
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X6 New Footprint=ÈíÅÅÏß6p
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=P1-4
+Added Net: Name=NetP1_1

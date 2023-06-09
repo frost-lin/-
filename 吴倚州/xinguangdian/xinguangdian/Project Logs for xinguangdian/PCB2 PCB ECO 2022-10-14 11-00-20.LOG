@@ -1,0 +1,10 @@
+Change Net Name : Old Net Name=NetC2_1 New Net Name=Net+_2
+Change Net Name : Old Net Name=NetD1_1 New Net Name=Net+_1
+Change Net Name : Old Net Name=NetD1_2 New Net Name=Net+_2
+Change Net Name : Old Net Name=NetD2_2 New Net Name=Net+_1
+Change Net Name : Old Net Name=NetPD1_1 New Net Name=Net+_1
+Added Member To Class: ClassName=Sheet1 Member=Component + 1206LED
+Added Member To Class: ClassName=Sheet1 Member=Component + BPW34S
+Added Member To Class: ClassName=Sheet1 Member=Component + 1206LED
+Added Member To Class: ClassName=Sheet1 Member=Component U1 AD623
+Added Room: Name=Sheet1

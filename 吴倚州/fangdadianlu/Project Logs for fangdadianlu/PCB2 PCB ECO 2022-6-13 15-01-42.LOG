@@ -1,0 +1,27 @@
+Added Component: Designator=C1(0402)
+Added Component: Designator=C2(0402)
+Added Component: Designator=C3(0402)
+Added Component: Designator=C4(0402)
+Added Component: Designator=R1(0402-A)
+Added Component: Designator=R2(0402-A)
+Added Component: Designator=R3(0402-A)
+Added Component: Designator=R4(0402-A)
+Added Component: Designator=U?(SO8_M)
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC1 Pin=U?-3
+Added Net: Name=NetC1
+Added Pin To Net: NetName=NetR3 Pin=U?-1
+Added Net: Name=NetR3
+Added Pin To Net: NetName=NetR4 Pin=U?-6
+Added Net: Name=NetR4
+Added Net: Name=OUT
+Added Pin To Net: NetName=REF Pin=U?-5
+Added Net: Name=REF
+Added Net: Name=S+
+Added Net: Name=S-
+Added Pin To Net: NetName=V+ Pin=U?-7
+Added Net: Name=V+
+Added Pin To Net: NetName=V- Pin=U?-4
+Added Net: Name=V-
+Added Class: Name=Sheet2
+Added Room: Name=Sheet2

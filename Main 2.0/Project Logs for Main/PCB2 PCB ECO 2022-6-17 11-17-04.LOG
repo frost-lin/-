@@ -1,0 +1,8 @@
+Added Component: Designator=USB1(Type-C)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=USB1-1
+Added Pin To Net: NetName=GND Pin=USB1-1
+Added Pin To Net: NetName=POWER Pin=USB1-2
+Added Pin To Net: NetName=POWER Pin=USB1-2
+Added Member To Class: ClassName=Sheet1 Member=Component J1 CON4
+Added Member To Class: ClassName=Sheet1 Member=Component USB1 USB

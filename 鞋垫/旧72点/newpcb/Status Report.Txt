@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [Free Documents]
+   Generated File[xiedian_new.TXT]
+   Generated File[xiedian_new.LDP]
+   Generated File[xiedian_new.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 16:26:02 On 2022/1/20
